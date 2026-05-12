@@ -30,7 +30,7 @@ const fallbackProducts = [
   },
   {
     product_name: "Baby Krishna",
-    image: "baby-Krishna.jpeg",
+    image: "baby-krishna.jpeg",
     price_10g: 20,
     price_50g: 80,
     price_100g: 150
