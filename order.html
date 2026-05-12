@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Order | Original Shunmugam Snuff Co</title>
+  <link rel="stylesheet" href="css/style.css" />
+
+  <style>
+    .order-section {
+      padding: 70px 0;
+      background: #F5F0E8;
+      min-height: 70vh;
+    }
+
+    .order-container {
+      width: 90%;
+      max-width: 1250px;
+      margin: auto;
+      display: flex;
+      gap: 60px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .order-image-box {
+      flex: 1;
+      min-width: 150px;
+      background: #FFFFFF;
+      border-radius: 24px;
+      padding: 30px;
+      text-align: center;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+      border: 1px solid rgba(200, 134, 10, 0.20);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .order-image-box:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 40px rgba(200, 134, 10, 0.16);
+      border-color: #C8860A;
+    }
+
+    .order-image-box img {
+      width: 100%;
+      max-width: 480px;
+      height: auto;
+      object-fit: contain;
+      border-radius: 16px;
+      transition: transform 0.35s ease;
+    }
+
+    .order-image-box:hover img {
+      transform: scale(1.04);
+    }
+
+    .order-info-box {
+      flex: 1;
+      min-width: 320px;
+      padding: 10px 0;
+    }
+
+    .order-info-box h1 {
+      font-size: 56px;
+      line-height: 1.05;
+      margin-bottom: 18px;
+      color: #1D5C3A;
+      font-weight: 800;
+      letter-spacing: -1px;
+      font-family: "Playfair Display", serif;
+    }
+
+    .order-info-box .product-desc {
+      font-size: 20px;
+      line-height: 1.6;
+      margin-bottom: 30px;
+      color: #5A5A5A;
+      max-width: 620px;
+    }
+
+    .pack-box,
+    .qty-box {
+      margin-bottom: 24px;
+    }
+
+    .pack-box label,
+    .qty-box label {
+      font-size: 18px;
+      font-weight: 700;
+      color: #1D5C3A;
+      display: block;
+      margin-bottom: 12px;
+    }
+
+    .pack-box select,
+    .qty-box input {
+      width: 240px;
+      padding: 14px 16px;
+      font-size: 18px;
+      border: 1.5px solid #D9D3C2;
+      border-radius: 14px;
+      background: #fff;
+      outline: none;
+      color: #1A1A1A;
+      transition: all 0.25s ease;
+    }
+
+    .pack-box select:focus,
+    .qty-box input:focus {
+      border-color: #C8860A;
+      box-shadow: 0 0 0 4px rgba(200, 134, 10, 0.10);
+    }
+
+    .price-tag {
+      display: inline-block;
+      background: #1D5C3A;
+      color: #fff;
+      font-size: 32px;
+      font-weight: 800;
+      padding: 12px 26px;
+      border-radius: 18px;
+      margin-bottom: 25px;
+      box-shadow: 0 10px 22px rgba(29, 92, 58, 0.20);
+    }
+
+    .total-price-box {
+      margin: 28px 0;
+      display: inline-block;
+      background: #F5E6C0;
+      border: 1.5px solid #C8860A;
+      color: #854F0B;
+      padding: 16px 24px;
+      border-radius: 16px;
+      font-size: 26px;
+      font-weight: 800;
+      box-shadow: 0 8px 20px rgba(200, 134, 10, 0.12);
+    }
+
+    .buy-btn {
+      background: #1D5C3A;
+      color: white;
+      padding: 16px 40px;
+      border-radius: 999px;
+      border: none;
+      font-size: 20px;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 10px 24px rgba(29, 92, 58, 0.22);
+      transition: all 0.28s ease;
+    }
+
+    .buy-btn:hover {
+      background: #C8860A;
+      transform: translateY(-2px);
+      box-shadow: 0 14px 28px rgba(200, 134, 10, 0.28);
+    }
+
+    .buy-btn:active {
+      transform: scale(0.98);
+    }
+
+    .trust-text {
+      margin-top: 16px;
+      color: #5A5A5A;
+      font-size: 15px;
+      font-weight: 600;
+    }
+
+    /* Related Products */
+    .related-products-section {
+      padding: 40px 0 70px;
+      background: #EDE7D9;
+    }
+
+    .related-title {
+      font-size: 34px;
+      font-weight: 800;
+      color: #1D5C3A;
+      margin-bottom: 30px;
+      font-family: "Playfair Display", serif;
+    }
+
+    .related-products-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .related-card {
+      background: #FFFFFF;
+      border-radius: 22px;
+      padding: 18px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.07);
+      border: 1px solid rgba(200, 134, 10, 0.15);
+      transition: transform 0.28s ease, box-shadow 0.28s ease;
+      text-align: center;
+    }
+
+    .related-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 36px rgba(200, 134, 10, 0.18);
+      border-color: #C8860A;
+    }
+
+    .related-card img {
+      width: 100%;
+      max-width: 220px;
+      height: 220px;
+      object-fit: contain;
+      background: #F5F0E8;
+      border-radius: 12px;
+      margin: 0 auto 16px;
+      display: block;
+      padding: 10px;
+    }
+
+    .related-card h3 {
+      font-size: 20px;
+      color: #1D5C3A;
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+
+    .related-card p {
+      font-size: 14px;
+      color: #5A5A5A;
+      margin-bottom: 16px;
+      line-height: 1.5;
+    }
+
+    .related-btn {
+      display: inline-block;
+      background: #1D5C3A;
+      color: #fff;
+      text-decoration: none;
+      padding: 10px 22px;
+      border-radius: 999px;
+      font-size: 15px;
+      font-weight: 700;
+      transition: all 0.25s ease;
+    }
+
+    .related-btn:hover {
+      background: #C8860A;
+    }
+
+    @media (max-width: 992px) {
+      .order-container { gap: 35px; }
+      .order-info-box h1 { font-size: 42px; }
+      .order-info-box .product-desc { font-size: 18px; }
+      .pack-box label, .qty-box label { font-size: 17px; }
+      .pack-box select, .qty-box input { font-size: 16px; width: 220px; }
+      .price-tag { font-size: 26px; }
+      .total-price-box { font-size: 22px; }
+      .buy-btn { font-size: 18px; }
+      .related-products-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 768px) {
+      .order-section { padding: 45px 0; }
+      .order-container { flex-direction: column; align-items: stretch; }
+      .order-info-box h1 { font-size: 32px; }
+      .order-info-box .product-desc { font-size: 16px; }
+      .pack-box select, .qty-box input { width: 100%; max-width: 260px; }
+      .price-tag, .total-price-box { font-size: 20px; }
+      .buy-btn { width: 100%; max-width: 260px; text-align: center; }
+      .related-products-grid { grid-template-columns: 1fr; }
+      .related-title { font-size: 26px; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Top Announcement -->
+  <div class="top-announcement">
+    <div class="announcement-track">
+      <div class="announcement-item">
+        <span class="announcement-text">Dealer Opportunities Across Tamil Nadu</span>
+        <a href="javascript:void(0)" class="dealer-link open-dealer-form">Become a Dealer</a>
+      </div>
+      <div class="announcement-item">
+        <span class="announcement-text">Dealer Opportunities Across Tamil Nadu</span>
+        <a href="javascript:void(0)" class="dealer-link open-dealer-form">Become a Dealer</a>
+      </div>
+      <div class="announcement-item">
+        <span class="announcement-text">Dealer Opportunities Across Tamil Nadu</span>
+        <a href="javascript:void(0)" class="dealer-link open-dealer-form">Become a Dealer</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="container nav-container">
+      <div class="brand">
+        <div class="logo-container">
+          <img src="images/logo.png" alt="Logo" class="logo">
+          <span class="estd-text">Estd. 1839</span>
+        </div>
+        <div class="brand-name">Original Shunmugam Snuff Co</div>
+      </div>
+      <nav class="nav-menu">
+        <a href="index.html">Home</a>
+        <a href="products.html">Products</a>
+        <a href="about.html">About Us</a>
+        <a href="shoponline.html" class="shop-link">Shop Online</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Product Details -->
+  <section class="order-section">
+    <div class="order-container">
+
+      <div class="order-image-box">
+        <img id="productImage" src="" alt="">
+      </div>
+
+      <div class="order-info-box">
+        <h1 id="productName"></h1>
+        <p class="product-desc">Traditional quality product from Original Shunmugam Snuff Co.</p>
+
+        <div class="pack-box">
+          <label for="packSize">Select Pack Size:</label>
+          <select id="packSize">
+            <option value="10">10g</option>
+            <option value="50">50g</option>
+            <option value="100">100g</option>
+          </select>
+        </div>
+
+        <div class="price-tag" id="productPrice">₹0</div>
+
+        <div class="qty-box">
+          <label for="quantity">Quantity:</label>
+          <input type="number" id="quantity" value="1" min="1">
+        </div>
+
+        <div class="total-price-box">
+          Total: <span id="totalPrice">₹0</span>
+        </div>
+
+        <br>
+        <button class="buy-btn" id="buyNowBtn">Order Now</button>
+        <p class="trust-text">Fast WhatsApp ordering • Trusted traditional quality</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Related Products -->
+  <section class="related-products-section">
+    <div class="container">
+      <h2 class="related-title">Related Products</h2>
+      <div class="related-products-grid" id="relatedProducts"></div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-content footer-grid">
+      <div class="footer-column">
+        <h2 class="footer-title">Original Shunmugam Snuff Co</h2>
+        <p>1st Street Sundaram Pillai Nagar, Tondiarpet, Chennai - 600081</p>
+        <p>Phone: +91 9840838200</p>
+        <p>Email: originalsnuff@yahoo.co.in</p>
+      </div>
+      <div class="footer-column">
+        <h3 class="footer-heading">Our Products</h3>
+        <ul class="footer-links">
+          <li><a href="order.html?name=Baby%20Krishna&image=baby-Krishna.jpeg&p10=20&p50=80&p100=150">Baby Krishna</a></li>
+          <li><a href="order.html?name=Joker&image=joker.jpeg&p10=25&p50=90&p100=170">Joker</a></li>
+          <li><a href="order.html?name=OS%20Snuff&image=os.jpeg&p10=30&p50=100&p100=180">OS Snuff</a></li>
+          <li><a href="order.html?name=Saraswathi%20Snuff&image=saraswathi.jpeg&p10=28&p50=95&p100=175">Saraswathi Snuff</a></li>
+          <li><a href="order.html?name=Thangam%20Patnam%20Podi&image=thangam-patnam-podi.jpeg&p10=24&p50=88&p100=165">Thangam Patnam Podi</a></li>
+          <li><a href="order.html?name=World%20Brand%20Snuff&image=world-brand.jpeg&p10=32&p50=110&p100=190">World Brand Snuff</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h3 class="footer-heading">Information</h3>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="shoponline.html">Shop Online</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Dealer Modal -->
+  <div class="dealer-modal" id="dealerModal">
+    <div class="dealer-form-box">
+      <button class="close-btn" id="closeDealerForm">&times;</button>
+      <h2>Become a Dealer</h2>
+      <p>Share your details and our team will contact you shortly.</p>
+      <form id="dealerForm">
+        <div class="form-row">
+          <input type="text" name="companyName" placeholder="Company name" />
+          <input type="text" name="name" placeholder="Your name*" required />
+        </div>
+        <div class="form-row form-row-four">
+          <input type="text" name="country" placeholder="Country*" required />
+          <input type="text" name="state" placeholder="State*" required />
+          <input type="text" name="city" placeholder="City*" required />
+          <input type="text" name="pincode" placeholder="Pincode*" required />
+        </div>
+        <div class="form-row">
+          <input type="email" name="email" placeholder="Your email*" required />
+          <input type="text" name="phone" placeholder="Your phone number*" required />
+        </div>
+        <div class="form-row full-width">
+          <textarea name="message" placeholder="Your message" rows="6"></textarea>
+        </div>
+        <button type="submit" class="submit-btn">Submit</button>
+        <p id="formMessage"></p>
+      </form>
+    </div>
+  </div>
+
+  <script src="js/script.js"></script>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const productName = params.get("name");
+    const productImage = params.get("image");
+    const price10 = parseInt(params.get("p10")) || 0;
+    const price50 = parseInt(params.get("p50")) || 0;
+    const price100 = parseInt(params.get("p100")) || 0;
+
+    document.getElementById("productName").textContent = productName || "Product";
+    document.getElementById("productImage").src = productImage ? "images/" + productImage : "images/default.jpg";
+    document.getElementById("productImage").alt = productName || "Product";
+
+    const packSize = document.getElementById("packSize");
+    const quantity = document.getElementById("quantity");
+    const productPrice = document.getElementById("productPrice");
+    const totalPrice = document.getElementById("totalPrice");
+
+    function getSelectedPrice() {
+      if (packSize.value === "10") return price10;
+      if (packSize.value === "50") return price50;
+      if (packSize.value === "100") return price100;
+      return 0;
+    }
+
+    function updatePrice() {
+      const selectedPrice = getSelectedPrice();
+      const qty = parseInt(quantity.value) || 1;
+      const total = selectedPrice * qty;
+      productPrice.textContent = "₹" + selectedPrice;
+      totalPrice.textContent = "₹" + total;
+    }
+
+    packSize.addEventListener("change", updatePrice);
+    quantity.addEventListener("input", updatePrice);
+    updatePrice();
+
+    document.getElementById("buyNowBtn").addEventListener("click", function () {
+      const qty = parseInt(quantity.value) || 1;
+      const selectedPack = packSize.value + "g";
+      const selectedPrice = getSelectedPrice();
+      const total = selectedPrice * qty;
+
+      const message = `Hello, I want to order:\n\nProduct: ${productName}\nPack Size: ${selectedPack}\nPrice: ₹${selectedPrice}\nQuantity: ${qty}\nTotal: ₹${total}`;
+      const phoneNumber = "919840838200";
+      const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+      window.open(whatsappUrl, "_blank");
+    });
+
+    const allProducts = [
+      { product_name: "Baby Krishna", image: "baby-Krishna.jpeg", price_10g: 20, price_50g: 80, price_100g: 150 },
+      { product_name: "Joker", image: "joker.jpeg", price_10g: 25, price_50g: 90, price_100g: 170 },
+      { product_name: "Mogini Krishna", image: "mogini-krishna.jpeg", price_10g: 22, price_50g: 85, price_100g: 160 },
+      { product_name: "OS Snuff", image: "os.jpeg", price_10g: 30, price_50g: 100, price_100g: 180 },
+      { product_name: "Saraswathi Snuff", image: "saraswathi.jpeg", price_10g: 28, price_50g: 95, price_100g: 175 },
+      { product_name: "Thangam Patnam Podi", image: "thangam-patnam-podi.jpeg", price_10g: 24, price_50g: 88, price_100g: 165 },
+      { product_name: "Vital Snuff", image: "vital.jpeg", price_10g: 26, price_50g: 92, price_100g: 172 },
+      { product_name: "World Brand Snuff", image: "world-brand.jpeg", price_10g: 32, price_50g: 110, price_100g: 190 }
+    ];
+
+    const relatedProductsContainer = document.getElementById("relatedProducts");
+
+    if (relatedProductsContainer) {
+      const filteredProducts = allProducts
+        .filter(product => product.product_name !== productName)
+        .slice(0, 3);
+
+      filteredProducts.forEach(product => {
+        const card = document.createElement("div");
+        card.className = "related-card";
+        card.innerHTML = `
+          <img src="images/${product.image}" alt="${product.product_name}">
+          <h3>${product.product_name}</h3>
+          <p>Traditional quality product from Original Shunmugam Snuff Co.</p>
+          <a class="related-btn" href="order.html?name=${encodeURIComponent(product.product_name)}&image=${encodeURIComponent(product.image)}&p10=${product.price_10g}&p50=${product.price_50g}&p100=${product.price_100g}">
+            View Product
+          </a>
+        `;
+        relatedProductsContainer.appendChild(card);
+      });
+    }
+  </script>
+
+</body>
+</html>
